@@ -45,7 +45,7 @@ jobs:
       run: sudo apt-get update && sudo apt-get install libglew-dev libsdl2-dev
     
     - name: Compile the example program
-      run: g++ -lX11 -lGL -lpthread -lpng -lstdc++fs -o example olcExampleProgram.cpp
+      run: g++ -lX11 -lGL -lpthread -lpng -lstdc++fs -std=c++17 -o example olcExampleProgram.cpp
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
