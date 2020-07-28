@@ -41,9 +41,11 @@ jobs:
     #    and modify them (or add more) to build your code if your project
     #    uses a compiled language
 
-    - run: |
-       sudo apt-get update && sudo apt-get install libglew-dev libsdl2-dev
-       g++ -lX11 -lGL -lpthread -lpng -lstdc++fs -o example olcExampleProgram.cpp
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install libglew-dev libsdl2-dev
+    
+    - name: Compile the example program
+      run: g++ -lX11 -lGL -lpthread -lpng -lstdc++fs -o example olcExampleProgram.cpp
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
